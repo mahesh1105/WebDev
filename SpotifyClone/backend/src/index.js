@@ -5,6 +5,7 @@ import { connectDB } from './lib/db.js';
 import { clerkMiddleware } from '@clerk/express'
 import fileUpload from 'express-fileupload'
 import path from 'path'
+import cors from 'cors'
 
 // If dotenv is imported and configured then only we can access data from it
 dotenv.config();
@@ -13,6 +14,13 @@ const __dirname = path.resolve();
 
 const app = express();
 const PORT = process.env.PORT;
+
+app.use(cors(
+  {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }
+))
 
 // To Parse req.body
 app.use(express.json());
@@ -50,6 +58,7 @@ app.get('/', (req, res) => {
   res.send("Hello World!");
 })
 
+// Listen on the PORT
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   connectDB();
