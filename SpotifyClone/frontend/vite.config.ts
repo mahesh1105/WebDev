@@ -14,4 +14,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Change the Server port from default to 3000
+  server: {
+    port: 3000
+  }
 })
