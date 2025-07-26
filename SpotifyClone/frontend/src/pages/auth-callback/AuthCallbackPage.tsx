@@ -17,7 +17,7 @@ const AuthCallbackPage = () => {
       }
 
       try {
-        syncAttempted.current = true; 
+        syncAttempted.current = true;
 
         // axios will send the request to backend
         await axiosInstance.post('/auth/callback', {

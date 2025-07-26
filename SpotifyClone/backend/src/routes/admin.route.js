@@ -12,7 +12,7 @@ router.get('/check', checkAdmin);
 // That's how middleware works
 // First it will check user authentication
 // Then user is admin or not and
-// then call the function createSong - makes sense !!
+// then call the function createSong and other functions - makes sense !!
 router.post('/songs', createSong);
 router.delete('/songs/:id', deleteSong);
 

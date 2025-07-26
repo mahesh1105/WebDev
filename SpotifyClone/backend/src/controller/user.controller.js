@@ -5,7 +5,7 @@ export const getAllUsers = async (req, res, next) => {
     const currentUserId = req.auth.userId;
     // Find all the users except the current
     const users = await User.find({clerkId: {$ne: currentUserId}});
-    res.status(200).json(users);
+    return res.status(200).json(users);
   } catch (error) {
     next(error);
   }

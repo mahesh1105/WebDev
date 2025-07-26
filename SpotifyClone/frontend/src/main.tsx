@@ -24,3 +24,11 @@ createRoot(document.getElementById('root')!).render(
     </ClerkProvider>
   </StrictMode>,
 )
+
+/*
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+
+  Wrap the App component inside Browser Router to use the React-Router-Dom
+*/

@@ -5,7 +5,7 @@ export const getAllSongs = async (req, res, next) => {
     // -1 = Descending => newest to oldest
     // 1 = Ascending => oldest to newest
     const songs = await Song.find().sort({createdAt: -1});
-    res.status(200).json(songs);
+    return res.status(200).json(songs);
   } catch (error) {
     next(error);
   }
@@ -20,7 +20,7 @@ export const getSongById = async (req, res, next) => {
       return res.status(404).json({ message: "Song not found" });
     }
 
-    res.status(200).json(song);
+    return res.status(200).json(song);
   } catch (error) {
     next(error);
   }
@@ -45,7 +45,7 @@ export const getFeaturedSongs = async (req, res, next) => {
       }
     ])
 
-    res.status(200).json(songs);
+    return res.status(200).json(songs);
   } catch (error) {
     next(error);
   }
@@ -70,7 +70,7 @@ export const getMadeForYouSongs = async (req, res, next) => {
       }
     ])
 
-    res.status(200).json(songs);
+    return res.status(200).json(songs);
   } catch (error) {
     next(error);
   }
@@ -95,7 +95,7 @@ export const getTrendingSongs = async (req, res, next) => {
       }
     ])
 
-    res.status(200).json(songs);
+    return res.status(200).json(songs);
   } catch (error) {
     next(error);
   }

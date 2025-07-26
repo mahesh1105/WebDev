@@ -52,7 +52,7 @@ export const createSong = async (req, res, next) => {
       });
     }
 
-    res.status(201).json(song);
+    return res.status(201).json(song);
 
   } catch(error) {
     console.log("Error in createSong", error);
@@ -77,7 +77,7 @@ export const deleteSong = async (req, res, next) => {
 
     await Song.findByIdAndDelete(id);
 
-    res.status(200).json({ message: "Song deleted successfully" });
+    return res.status(200).json({ message: "Song deleted successfully" });
 
   } catch (error) {
     console.log("Error in deleteSong", error);
@@ -108,7 +108,7 @@ export const createAlbum = async (req, res, next) => {
 
     await album.save();
 
-    res.status(201).json(album);
+    return res.status(201).json(album);
 
   } catch(error) {
     console.log("Error in createAlbum", error);
@@ -127,7 +127,7 @@ export const deleteAlbum = async (req, res, next) => {
 
     await Album.findByIdAndDelete(id);
 
-    res.status(200).json({ message: "Album deleted successfully" });
+    return res.status(200).json({ message: "Album deleted successfully" });
 
   } catch (error) {
     console.log("Error in deleteSong", error);
@@ -136,5 +136,5 @@ export const deleteAlbum = async (req, res, next) => {
 }
 
 export const checkAdmin = async (req, res, next) => {
-  res.status(200).json({ admin: true });
+  return res.status(200).json({ admin: true });
 }
